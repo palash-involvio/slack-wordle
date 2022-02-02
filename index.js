@@ -2,11 +2,13 @@ import Bolt from "@slack/bolt";
 import vm from "vm";
 import fs from "fs";
 import { JSDOM } from "jsdom";
-import { CLIENT_SECRET, CLIENT_ID } from "./config.js";
+// import { CLIENT_SECRET, CLIENT_ID } from "./config.js";
 import fetch from "node-fetch";
 import timezonedDate from "timezoned-date";
 import express from "express";
 import bodyParser from "body-parser";
+const CLIENT_SECRET = '';
+const CLIENT_ID = '';
 
 // make an array of the alphabet, we'll need this later
 const alpha = Array.from(Array(26)).map((e, i) => i + 65);
