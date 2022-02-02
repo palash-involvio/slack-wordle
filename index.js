@@ -289,6 +289,6 @@ ${publicRowEvals.join("\n")}`,
 
 app.get('/welcome', (req, res) => res.json({ msg: 'Welcome to Wordle..!!' }));
 
-app.listen(3000, function () {
-    console.log("Wordle listening on port 3000!");
+app.listen(process.env.PORT || 3000, function () {
+    console.log("Wordle app is running..!");
 });
