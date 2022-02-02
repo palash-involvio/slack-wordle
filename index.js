@@ -2,7 +2,7 @@ import Bolt from "@slack/bolt";
 import vm from "vm";
 import fs from "fs";
 import { JSDOM } from "jsdom";
-import { PORT, CLIENT_SECRET, CLIENT_ID } from "./config.js";
+import { CLIENT_SECRET, CLIENT_ID } from "./config.js";
 import fetch from "node-fetch";
 import timezonedDate from "timezoned-date";
 import express from "express";
@@ -224,7 +224,7 @@ app.post("/slack/events", async function (req, res) {
                         text: `<@${user}>'s Wordle ${game.dayOffset} ${
                             game.rowIndex
                         }/6
-        
+
 ${publicRowEvals.join("\n")}`,
                     }),
                 });
@@ -235,7 +235,7 @@ ${publicRowEvals.join("\n")}`,
                         channel: channel,
                         thread_ts: thread_ts,
                         text: `\`\`\`${wordEvalStrings.join("\n")}\`\`\`
-            
+
 🟩 ${Object.keys(game.letterEvaluations)
                             .filter(
                                 (k) => game.letterEvaluations[k] === "correct"
@@ -285,6 +285,8 @@ ${publicRowEvals.join("\n")}`,
     }
 });
 
-app.listen(PORT, function () {
-    console.log("Wordle listening on port " + PORT + "!");
+app.get('/welcome', (req, res) => res.json({ msg: 'Welcome to Wordle..!!' }));
+
+app.listen(3000, function () {
+    console.log("Wordle listening on port 3000!");
 });
